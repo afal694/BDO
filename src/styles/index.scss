@@ -22,18 +22,40 @@ header {
 	grid-row: 1 / 2;
 
 	color: blue;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 
 	display: flex;
-	justify-content: center;
-	align-items: center;
+  flex-wrap: nowrap;
+  align-items: center;
 
-	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	.first-button {
+		flex: 0 1 52px;
+	}
+
+	.logo {
+		flex: 1 1 50%;
+    display: flex;
+    img{
+      height: 50px;
+      margin: auto;
+    }
+	}
+
+	.last-button {
+		flex: 0 1 52px;
+	}
+
+  .first-button, .last-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 main {
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
-  display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }

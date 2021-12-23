@@ -4,7 +4,7 @@ import Header from "./Header";
 
 interface PageLayoutProps {
 	name?: string;
-	children: JSX.Element;
+	children?: JSX.Element;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({

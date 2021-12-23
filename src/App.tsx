@@ -5,7 +5,7 @@ import PageLayout from "./components/PageLayout";
 
 function App() {
 	return (
-		<PageLayout name="Andres">
+		<PageLayout>
 			<PageInfo />
 		</PageLayout>
 	);
