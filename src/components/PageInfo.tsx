@@ -1,4 +1,5 @@
 import React from "react";
+import CardAction from "./CardAction";
 
 interface PageInfoProps {
 	obj?: {
@@ -28,7 +29,7 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 	return (
 		<div className="info-key-value">
 			<span className="fw-bold">{name}</span>
-			<span >{value}</span>
+			<span>{value}</span>
 		</div>
 	);
 };
@@ -49,11 +50,20 @@ const PageInfo: React.FC<PageInfoProps> = ({
 				</div>
 			</div>
 			<div className="actions">
-				<div>
+				<div className="details">
 					<p>Indique la línea de crédito que quiere reconsiderar</p>
 				</div>
-				<div>
-					<div className="action"></div>
+				<div className="cards-container">
+					<CardAction
+						button={{ text: "Continuar", onAction: () => {} }}
+						details={"Cartera ordinaria"}
+						icon=""
+					/>
+					<CardAction
+						button={{ text: "Continuar", onAction: () => {} }}
+						details={"Leasing"}
+						icon=""
+					/>
 				</div>
 			</div>
 			<div className="info"></div>
