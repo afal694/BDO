@@ -71,6 +71,7 @@ footer {
 }
 
 .meta-data {
+	text-align: center;
 	.info {
 		display: flex;
 		flex-wrap: nowrap;
@@ -90,6 +91,8 @@ footer {
 	> .details {
 		color: $blue-600;
 	}
+
+	margin-bottom: 15px;
 }
 
 .cards-container {
@@ -126,5 +129,22 @@ footer {
 				color: $blue-600;
 			}
 		}
+	}
+}
+
+.custom-alert {
+	display: flex;
+	flex-direction: row;
+	height: 70px;
+	align-items: center;
+	.divider {
+		flex: 0 1 15px;
+		border-left: 3px solid $yellow-500;
+		height: 50px;
+		margin: 0 6px;
+	}
+
+	.message {
+		flex: 1 1 50%;
 	}
 }

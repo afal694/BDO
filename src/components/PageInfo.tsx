@@ -1,5 +1,6 @@
 import React from "react";
 import CardAction from "./CardAction";
+import CustomAlert from "./CustomAlert";
 
 interface PageInfoProps {
 	obj?: {
@@ -28,7 +29,7 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 }: InfoKeyValueProps) => {
 	return (
 		<div className="info-key-value">
-			<span className="fw-bold">{name}</span>
+			<span className="fw-bold">{`${name}: `}</span>
 			<span>{value}</span>
 		</div>
 	);
@@ -40,7 +41,7 @@ const PageInfo: React.FC<PageInfoProps> = ({
 	const { name, layer, managerRelation, nit, segment } = obj;
 
 	return (
-		<div>
+		<div style={{width: "780px"}}>
 			<div className="meta-data">
 				<p className="fs-4 fw-bolder">{name}</p>
 				<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
@@ -66,7 +67,9 @@ const PageInfo: React.FC<PageInfoProps> = ({
 					/>
 				</div>
 			</div>
-			<div className="info"></div>
+			<div className="info">
+				<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+			</div>
 		</div>
 	);
 };
