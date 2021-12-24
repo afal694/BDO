@@ -1,9 +1,10 @@
 import React from "react";
+import logoAval from "../assets/Logo_Aval.png";
 
 const Footer = ({}) => {
 	return (
 		<footer>
-			<span>footer</span>
+			<img src={logoAval} alt="logo aval" />
 		</footer>
 	);
 };
