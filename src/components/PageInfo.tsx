@@ -41,7 +41,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
 
 	const fetch = async () => {
 		try {
-			const res = await fetchInfo();
+			const res = await fetchInfo({ nit: MockObj.nit });
 			setState(res?.data.response);
 		} catch (error) {}
 	};
