@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchInfo } from "../services/Fetching";
 import CardAction from "./CardAction";
 import CustomAlert from "./CustomAlert";
 
@@ -35,13 +36,36 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 	);
 };
 
-const PageInfo: React.FC<PageInfoProps> = ({
-	obj = MockObj,
-}: PageInfoProps) => {
-	const { name, layer, managerRelation, nit, segment } = obj;
+const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
+	const [state, setState] = useState(null);
+
+	const fetch = async () => {
+		try {
+			const res = await fetchInfo();
+			setState(res?.data.response);
+		} catch (error) {}
+	};
+
+	useEffect(() => {
+		console.info({ state });
+	}, [state]);
+
+	useEffect(() => {
+		fetch();
+	}, []);
+
+	if (!state) return null;
+
+	const {
+		capa: layer,
+		gerenteRelacion: managerRelation,
+		nit,
+		nombre: name,
+		segmento: segment,
+	} = state;
 
 	return (
-		<div style={{width: "780px"}}>
+		<div style={{ width: "780px" }}>
 			<div className="meta-data">
 				<p className="fs-4 fw-bolder">{name}</p>
 				<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
@@ -56,7 +80,7 @@ const PageInfo: React.FC<PageInfoProps> = ({
 				</div>
 				<div className="cards-container">
 					<CardAction
-						button={{ text: "Continuar", onAction: () => {} }}
+						button={{ text: "Continuar", onAction: () => alert("onaction") }}
 						details={"Cartera ordinaria"}
 						icon=""
 					/>
