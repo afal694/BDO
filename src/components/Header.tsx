@@ -10,7 +10,16 @@ const AvatarComponent = () => {
 	);
 };
 
-const Header = ({}) => {
+const Header = ({
+	queries,
+}: {
+	queries: {
+		isDesktop: boolean;
+		isTablet: boolean;
+		isMobile: boolean;
+		isNotMobile: boolean;
+	};
+}) => {
 	return (
 		<header>
 			<div className="first-button">

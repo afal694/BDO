@@ -14,7 +14,7 @@ function App() {
 
 	const queries = { isDesktop, isTablet, isMobile, isNotMobile };
 	return (
-		<PageLayout>
+		<PageLayout queries={queries}>
 			<PageInfo queries={queries} />
 		</PageLayout>
 	);
