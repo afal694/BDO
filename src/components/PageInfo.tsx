@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchInfo } from "../services/Fetching";
 import CardAction from "./CardAction";
 import CustomAlert from "./CustomAlert";
+import { useMediaQuery } from "react-responsive";
 
 interface PageInfoProps {
 	obj?: {
@@ -38,6 +39,13 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 
 const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
 	const [state, setState] = useState(null);
+
+	//media queries
+
+	const isPhone = useMediaQuery({ query: "(min-width: 320px)" });
+	const isDesktopOrLaptop = useMediaQuery({
+		query: "(min-width: 1224px)",
+	});
 
 	const fetch = async () => {
 		try {
@@ -94,6 +102,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
 			</div>
 			<div className="info">
 				<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+				{isDesktopOrLaptop && <CustomAlert message="isDesktopOrLaptop" />}
 			</div>
 		</div>
 	);
