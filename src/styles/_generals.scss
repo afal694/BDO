@@ -67,10 +67,10 @@ footer {
 
 	display: flex;
 	justify-content: flex-end;
-	align-items: center;	
+	align-items: center;
 	padding: 0 12px;
 
-	img{
+	img {
 		height: 45px;
 	}
 }
@@ -151,11 +151,22 @@ footer {
 
 	.message {
 		flex: 1 1 50%;
+		color: $yellow-600;
+	}
+
+	.icon {
+		flex: 0 1 auto;
+		padding-right: 7px;
+		i {
+			font-size: 1.8rem;
+			color: $yellow-500;
+			font-weight: 600;
+		}
 	}
 }
 
-.avatar-component{
-	img{
+.avatar-component {
+	img {
 		vertical-align: middle;
 		width: 50px;
 		height: 50px;
