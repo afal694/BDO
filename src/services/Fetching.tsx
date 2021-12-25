@@ -9,3 +9,5 @@ export const fetchInfo = async (options = { nit: "" }) => {
 		return response;
 	} catch (error) {}
 };
+
+
