@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { fetchInfo } from "../services/Fetching";
 import CardAction from "./CardAction";
 import CustomAlert from "./CustomAlert";
-import { useMediaQuery } from "react-responsive";
 
 interface PageInfoProps {
 	obj?: {
@@ -43,10 +42,7 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 	);
 };
 
-const PageInfo: React.FC<PageInfoProps> = ({
-	obj,
-	queries: { isDesktop, isMobile, isNotMobile, isTablet },
-}: PageInfoProps) => {
+const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 	const [state, setState] = useState(null);
 
 	const fetch = async () => {
@@ -75,7 +71,82 @@ const PageInfo: React.FC<PageInfoProps> = ({
 		segmento: segment,
 	} = state;
 
-	if (isDesktop) {
+	const TabsComponent = <div>tabs</div>;
+
+	if (queries.isDesktop)
+		return (
+			<div style={{ width: "780px", position: "relative" }}>
+				<div className="" style={{ position: "absolute" }}>
+					<i className="bi bi-arrow-left" />
+				</div>
+				<div className="meta-data">
+					<p className="fs-4 fw-bolder">{name}</p>
+					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
+					<div className="info">
+						<InfoKeyValue name={"Capa"} value={layer} />
+						<InfoKeyValue name={"Segmento"} value={segment} />
+					</div>
+				</div>
+				<div className="actions">
+					{TabsComponent}
+					<div className="details">
+						<p>Indique la línea de crédito que quiere reconsiderar</p>
+					</div>
+					<div className="cards-container">
+						<CardAction
+							button={{ text: "Continuar", onAction: () => alert("onaction") }}
+							details={"Cartera ordinaria"}
+							icon=""
+						/>
+						<CardAction
+							button={{ text: "Continuar", onAction: () => {} }}
+							details={"Leasing"}
+							icon=""
+						/>
+					</div>
+				</div>
+				<div className="info">
+					<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+				</div>
+			</div>
+		);
+
+	if (queries.isTablet)
+		return (
+			<div style={{ width: "780px" }}>
+				<div className="meta-data">
+					<p className="fs-4 fw-bolder">{name}</p>
+					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
+					<div className="info">
+						<InfoKeyValue name={"Capa"} value={layer} />
+						<InfoKeyValue name={"Segmento"} value={segment} />
+					</div>
+				</div>
+				<div className="actions">
+					{TabsComponent}
+					<div className="details">
+						<p>Indique la línea de crédito que quiere reconsiderar</p>
+					</div>
+					<div className="cards-container">
+						<CardAction
+							button={{ text: "Continuar", onAction: () => alert("onaction") }}
+							details={"Cartera ordinaria"}
+							icon=""
+						/>
+						<CardAction
+							button={{ text: "Continuar", onAction: () => {} }}
+							details={"Leasing"}
+							icon=""
+						/>
+					</div>
+				</div>
+				<div className="info">
+					<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+				</div>
+			</div>
+		);
+
+	if (queries.isMobile)
 		return (
 			<div style={{ width: "780px" }}>
 				<div className="meta-data">
@@ -108,7 +179,6 @@ const PageInfo: React.FC<PageInfoProps> = ({
 				</div>
 			</div>
 		);
-	}
 
 	return null;
 };
