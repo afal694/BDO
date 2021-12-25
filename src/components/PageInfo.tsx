@@ -12,6 +12,12 @@ interface PageInfoProps {
 		segment: string;
 		managerRelation: string;
 	};
+	queries: {
+		isDesktop: boolean;
+		isTablet: boolean;
+		isMobile: boolean;
+		isNotMobile: boolean;
+	};
 }
 const MockObj = {
 	nit: "800220154",
@@ -37,15 +43,11 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 	);
 };
 
-const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
+const PageInfo: React.FC<PageInfoProps> = ({
+	obj,
+	queries: { isDesktop, isMobile, isNotMobile, isTablet },
+}: PageInfoProps) => {
 	const [state, setState] = useState(null);
-
-	//media queries
-
-	const isPhone = useMediaQuery({ query: "(min-width: 320px)" });
-	const isDesktopOrLaptop = useMediaQuery({
-		query: "(min-width: 1224px)",
-	});
 
 	const fetch = async () => {
 		try {
@@ -73,39 +75,42 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj }: PageInfoProps) => {
 		segmento: segment,
 	} = state;
 
-	return (
-		<div style={{ width: "780px" }}>
-			<div className="meta-data">
-				<p className="fs-4 fw-bolder">{name}</p>
-				<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
+	if (isDesktop) {
+		return (
+			<div style={{ width: "780px" }}>
+				<div className="meta-data">
+					<p className="fs-4 fw-bolder">{name}</p>
+					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
+					<div className="info">
+						<InfoKeyValue name={"Capa"} value={layer} />
+						<InfoKeyValue name={"Segmento"} value={segment} />
+					</div>
+				</div>
+				<div className="actions">
+					<div className="details">
+						<p>Indique la línea de crédito que quiere reconsiderar</p>
+					</div>
+					<div className="cards-container">
+						<CardAction
+							button={{ text: "Continuar", onAction: () => alert("onaction") }}
+							details={"Cartera ordinaria"}
+							icon=""
+						/>
+						<CardAction
+							button={{ text: "Continuar", onAction: () => {} }}
+							details={"Leasing"}
+							icon=""
+						/>
+					</div>
+				</div>
 				<div className="info">
-					<InfoKeyValue name={"Capa"} value={layer} />
-					<InfoKeyValue name={"Segmento"} value={segment} />
+					<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
 				</div>
 			</div>
-			<div className="actions">
-				<div className="details">
-					<p>Indique la línea de crédito que quiere reconsiderar</p>
-				</div>
-				<div className="cards-container">
-					<CardAction
-						button={{ text: "Continuar", onAction: () => alert("onaction") }}
-						details={"Cartera ordinaria"}
-						icon=""
-					/>
-					<CardAction
-						button={{ text: "Continuar", onAction: () => {} }}
-						details={"Leasing"}
-						icon=""
-					/>
-				</div>
-			</div>
-			<div className="info">
-				<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
-				{isDesktopOrLaptop && <CustomAlert message="isDesktopOrLaptop" />}
-			</div>
-		</div>
-	);
+		);
+	}
+
+	return null;
 };
 
 export default PageInfo;
