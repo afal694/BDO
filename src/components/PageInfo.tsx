@@ -3,6 +3,7 @@ import { fetchInfo } from "../services/Fetching";
 import CardAction from "./CardAction";
 import CustomAlert from "./CustomAlert";
 import IconButton from "./IconButton";
+import TabsComponent from "./TabsComponent";
 
 interface PageInfoProps {
 	obj?: {
@@ -47,8 +48,6 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 		segmento: segment,
 	} = obj;
 
-	const TabsComponent = <div>tabs</div>;
-
 	if (queries.isDesktop)
 		return (
 			<div style={{ width: "780px", position: "relative" }}>
@@ -64,25 +63,58 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					</div>
 				</div>
 				<div className="actions">
-					{TabsComponent}
-					<div className="details">
-						<p>Indique la línea de crédito que quiere reconsiderar</p>
-					</div>
-					<div className="cards-container">
-						<CardAction
-							button={{ text: "Continuar", onAction: () => alert("onaction") }}
-							details={"Cartera ordinaria"}
-							icon=""
-						/>
-						<CardAction
-							button={{ text: "Continuar", onAction: () => {} }}
-							details={"Leasing"}
-							icon=""
-						/>
-					</div>
-				</div>
-				<div className="info">
-					<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+					<TabsComponent
+						tabs={[
+							{
+								component: (
+									<>
+										<div className="details">
+											<p>Indique la línea de crédito que quiere reconsiderar</p>
+										</div>
+										<div className="cards-container">
+											<CardAction
+												button={{
+													text: "Continuar",
+													onAction: () => alert("onaction"),
+												}}
+												details={"Cartera ordinaria"}
+												icon=""
+											/>
+											<CardAction
+												button={{ text: "Continuar", onAction: () => {} }}
+												details={"Leasing"}
+												icon=""
+											/>
+										</div>
+										<div className="info">
+											<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+										</div>
+									</>
+								),
+								title: "Operación",
+							},
+							{
+								component: (
+									<>
+										<div className="details">
+											<p>Indicadores</p>
+										</div>
+									</>
+								),
+								title: "Indicadores",
+							},
+							{
+								component: (
+									<>
+										<div className="details">
+											<p>Información Cliente</p>
+										</div>
+									</>
+								),
+								title: "Información Cliente",
+							},
+						]}
+					/>
 				</div>
 			</div>
 		);
@@ -99,7 +131,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					</div>
 				</div>
 				<div className="actions">
-					{TabsComponent}
+					<TabsComponent tabs={[{ component: <>asdas</>, title: "home" }]} />
 					<div className="details">
 						<p>Indique la línea de crédito que quiere reconsiderar</p>
 					</div>
