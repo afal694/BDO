@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchInfo } from "../services/Fetching";
 import CardAction from "./CardAction";
 import CustomAlert from "./CustomAlert";
+import IconButton from "./IconButton";
 
 interface PageInfoProps {
 	obj?: {
@@ -52,9 +53,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 		return (
 			<div style={{ width: "780px", position: "relative" }}>
 				<div className="button-panel">
-					<button onClick={() => alert("onBack")}>
-						<i className="bi bi-arrow-left" />
-					</button>
+					<IconButton onClick={() => alert("onBack")} icon="bi bi-arrow-left" />
 				</div>
 				<div className="meta-data">
 					<p className="fs-4 fw-bolder">{name}</p>

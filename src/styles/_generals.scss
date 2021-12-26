@@ -201,7 +201,10 @@ footer {
 .button-panel {
 	position: absolute;
 	top: -39px;
-	button {
+}
+
+.icon-button {
+	&__button {
 		border: none; /* Remove borders */
 		cursor: pointer; /* Mouse pointer on hover */
 		background-color: white;
@@ -212,8 +215,8 @@ footer {
 			color: $blue-300;
 			transition: 0.2s;
 		}
-	}
-	i {
-		font-size: 1.6rem;
+		i {
+			font-size: 1.6rem;
+		}
 	}
 }

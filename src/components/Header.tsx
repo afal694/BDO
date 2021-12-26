@@ -1,6 +1,7 @@
 import React from "react";
 import * as Icon from "react-bootstrap-icons";
 import Logo from "../assets/logo.png";
+import IconButton from "./IconButton";
 
 const AvatarComponent = ({
 	obj,
@@ -62,17 +63,13 @@ const Header = ({
 		return (
 			<header className="d-flex flex-row justify-content-between">
 				<div className="first-button">
-					<div className="button-header">
-						<i className="bi bi-arrow-left" />
-					</div>
+					<IconButton onClick={() => {alert("onBAck")}} icon="bi bi-arrow-left" />
 				</div>
 				<div className="logo">
 					<img src={Logo} alt="logo" />
 				</div>
 				<div className="last-button">
-					<div className="button-header">
-						<i className="bi bi-list" />
-					</div>
+					<IconButton onClick={() => {alert("menu")}} icon="bi bi-list" />
 				</div>
 			</header>
 		);
