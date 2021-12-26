@@ -51,8 +51,10 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 	if (queries.isDesktop)
 		return (
 			<div style={{ width: "780px", position: "relative" }}>
-				<div className="" style={{ position: "absolute" }}>
-					<i className="bi bi-arrow-left" />
+				<div className="button-panel">
+					<button onClick={() => alert("onBack")}>
+						<i className="bi bi-arrow-left" />
+					</button>
 				</div>
 				<div className="meta-data">
 					<p className="fs-4 fw-bolder">{name}</p>
