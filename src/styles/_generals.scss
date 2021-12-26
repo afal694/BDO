@@ -114,10 +114,10 @@ footer {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
-	gap: 10px;
+	gap: 15px;
 	margin: 60px 0;
 	.card-action {
-		width: 160px;
+		width: 210px;
 		border-radius: 5px;
 		outline: 2px solid $gray-400;
 
@@ -126,7 +126,11 @@ footer {
 		align-items: stretch;
 		text-align: center;
 		.icon {
-			height: 80px;
+			height: 105px;
+			i {
+				font-size: 3.5rem;
+				color: $blue-400;
+			}
 		}
 
 		.details {
@@ -142,6 +146,14 @@ footer {
 				border: none;
 				background-color: $gray-300;
 				color: $blue-600;
+			}
+		}
+
+		&.disabled {
+			opacity: 0.4;
+			button {
+				cursor: not-allowed;
+				color: black;
 			}
 		}
 	}
@@ -222,14 +234,13 @@ footer {
 }
 
 .tab-component {
-	.nav-link{
-		color: rgba(0, 0, 0, 0.3)	
+	.nav-link {
+		color: rgba(0, 0, 0, 0.3);
 	}
 	.nav-link.active {
 		color: black !important;
-		font-weight:bold ;
+		font-weight: bold;
 		border-color: white white $blue-500 !important;
 		border-width: 1px !important;
-
 	}
 }

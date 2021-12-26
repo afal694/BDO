@@ -64,12 +64,13 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 										onAction: () => alert("onaction"),
 									}}
 									details={"Cartera ordinaria"}
-									icon=""
+									icon="bi bi-coin"
 								/>
 								<CardAction
 									button={{ text: "Continuar", onAction: () => {} }}
 									details={"Leasing"}
-									icon=""
+									icon="bi bi-house-door"
+									disabled
 								/>
 							</div>
 							<div className="info">
@@ -160,12 +161,13 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 						<CardAction
 							button={{ text: "Continuar", onAction: () => alert("onaction") }}
 							details={"Cartera ordinaria"}
-							icon=""
+							icon="bi bi-coin"
 						/>
 						<CardAction
 							button={{ text: "Continuar", onAction: () => {} }}
 							details={"Leasing"}
-							icon=""
+							icon="bi bi-house-door"
+							disabled
 						/>
 					</div>
 				</div>
