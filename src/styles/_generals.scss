@@ -21,7 +21,6 @@ header {
 	grid-column: 1 / 2;
 	grid-row: 1 / 2;
 
-	color: blue;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 
 	display: flex;
@@ -51,6 +50,14 @@ header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		.button-header {
+			padding: 0 15px;
+			i {
+				font-size: 1.6rem;
+				color: $blue-500;
+			}
+		}
 	}
 }
 
@@ -180,7 +187,7 @@ footer {
 		padding-right: 12px;
 		text-align: end;
 
-		&__name{
+		&__name {
 			color: black;
 			font-weight: 600;
 		}

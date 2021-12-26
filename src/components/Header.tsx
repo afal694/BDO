@@ -62,13 +62,17 @@ const Header = ({
 		return (
 			<header className="d-flex flex-row justify-content-between">
 				<div className="first-button">
-					<Icon.ArrowLeft />
+					<div className="button-header">
+						<i className="bi bi-arrow-left" />
+					</div>
 				</div>
 				<div className="logo">
 					<img src={Logo} alt="logo" />
 				</div>
 				<div className="last-button">
-					<Icon.List />
+					<div className="button-header">
+						<i className="bi bi-list" />
+					</div>
 				</div>
 			</header>
 		);
