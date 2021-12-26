@@ -48,6 +48,61 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 		segmento: segment,
 	} = obj;
 
+	const Tabs = (
+		<TabsComponent
+			tabs={[
+				{
+					component: (
+						<>
+							<div className="details">
+								<p>Indique la línea de crédito que quiere reconsiderar</p>
+							</div>
+							<div className="cards-container">
+								<CardAction
+									button={{
+										text: "Continuar",
+										onAction: () => alert("onaction"),
+									}}
+									details={"Cartera ordinaria"}
+									icon=""
+								/>
+								<CardAction
+									button={{ text: "Continuar", onAction: () => {} }}
+									details={"Leasing"}
+									icon=""
+								/>
+							</div>
+							<div className="info">
+								<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
+							</div>
+						</>
+					),
+					title: "Operación",
+				},
+				{
+					component: (
+						<>
+							<div className="details">
+								<p>Indicadores</p>
+							</div>
+						</>
+					),
+					title: "Indicadores",
+				},
+				{
+					component: (
+						<>
+							<div className="details">
+								<p>Información Cliente</p>
+							</div>
+						</>
+					),
+					title: "Información Cliente",
+				},
+			]}
+		/>
+	);
+
 	if (queries.isDesktop)
 		return (
 			<div style={{ width: "780px", position: "relative" }}>
@@ -62,66 +117,13 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 						<InfoKeyValue name={"Segmento"} value={segment} />
 					</div>
 				</div>
-				<div className="actions">
-					<TabsComponent
-						tabs={[
-							{
-								component: (
-									<>
-										<div className="details">
-											<p>Indique la línea de crédito que quiere reconsiderar</p>
-										</div>
-										<div className="cards-container">
-											<CardAction
-												button={{
-													text: "Continuar",
-													onAction: () => alert("onaction"),
-												}}
-												details={"Cartera ordinaria"}
-												icon=""
-											/>
-											<CardAction
-												button={{ text: "Continuar", onAction: () => {} }}
-												details={"Leasing"}
-												icon=""
-											/>
-										</div>
-										<div className="info">
-											<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
-										</div>
-									</>
-								),
-								title: "Operación",
-							},
-							{
-								component: (
-									<>
-										<div className="details">
-											<p>Indicadores</p>
-										</div>
-									</>
-								),
-								title: "Indicadores",
-							},
-							{
-								component: (
-									<>
-										<div className="details">
-											<p>Información Cliente</p>
-										</div>
-									</>
-								),
-								title: "Información Cliente",
-							},
-						]}
-					/>
-				</div>
+				<div className="actions">{Tabs}</div>
 			</div>
 		);
 
 	if (queries.isTablet)
 		return (
-			<div style={{ width: "780px" }}>
+			<div style={{ width: "65%" }}>
 				<div className="meta-data">
 					<p className="fs-4 fw-bolder">{name}</p>
 					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
@@ -130,33 +132,13 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 						<InfoKeyValue name={"Segmento"} value={segment} />
 					</div>
 				</div>
-				<div className="actions">
-					<TabsComponent tabs={[{ component: <>asdas</>, title: "home" }]} />
-					<div className="details">
-						<p>Indique la línea de crédito que quiere reconsiderar</p>
-					</div>
-					<div className="cards-container">
-						<CardAction
-							button={{ text: "Continuar", onAction: () => alert("onaction") }}
-							details={"Cartera ordinaria"}
-							icon=""
-						/>
-						<CardAction
-							button={{ text: "Continuar", onAction: () => {} }}
-							details={"Leasing"}
-							icon=""
-						/>
-					</div>
-				</div>
-				<div className="info">
-					<CustomAlert message="Las demás líneas de crédito no estarán disponibles por el momento" />
-				</div>
+				<div className="actions">{Tabs}</div>
 			</div>
 		);
 
 	if (queries.isMobile)
 		return (
-			<div style={{ width: "780px" }}>
+			<div style={{ width: "80%" }}>
 				<div className="meta-data">
 					<p className="fs-4 fw-bolder">{name}</p>
 					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
@@ -166,6 +148,11 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					</div>
 				</div>
 				<div className="actions">
+					<div
+						style={{
+							borderBottom: "1px solid rgba(0,0,0,0.3)",
+							margin: "10px 0",
+						}}></div>
 					<div className="details">
 						<p>Indique la línea de crédito que quiere reconsiderar</p>
 					</div>
