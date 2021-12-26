@@ -6,7 +6,7 @@ const TabsComponent = ({
 }: {
 	tabs: { component: React.ReactElement; title: string }[];
 }) => {
-	const [key, setKey] = useState("home");
+	const [key, setKey] = useState(tabs[0].title);
 	return (
 		<Tabs
 			id="controlled-tab-example"
@@ -14,7 +14,7 @@ const TabsComponent = ({
 			onSelect={(k) => {
 				if (k) setKey(k);
 			}}
-			className="mb-3">
+			className="mb-3 d-flex justify-content-between tab-component">
 			{tabs.map(({ title, component }) => {
 				return (
 					<Tab eventKey={title} title={title}>

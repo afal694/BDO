@@ -220,3 +220,16 @@ footer {
 		}
 	}
 }
+
+.tab-component {
+	.nav-link{
+		color: rgba(0, 0, 0, 0.3)	
+	}
+	.nav-link.active {
+		color: black !important;
+		font-weight:bold ;
+		border-color: white white $blue-500 !important;
+		border-width: 1px !important;
+
+	}
+}
