@@ -175,4 +175,17 @@ footer {
 		border-radius: 50%;
 		object-fit: cover;
 	}
+
+	.data {
+		padding-right: 12px;
+		text-align: end;
+
+		&__name{
+			color: black;
+			font-weight: 600;
+		}
+		.text-muted {
+			font-size: 0.8rem;
+		}
+	}
 }

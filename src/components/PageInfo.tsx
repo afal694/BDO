@@ -6,10 +6,10 @@ import CustomAlert from "./CustomAlert";
 interface PageInfoProps {
 	obj?: {
 		nit: string;
-		name: string;
-		layer: string;
-		segment: string;
-		managerRelation: string;
+		nombre: string;
+		capa: string;
+		segmento: string;
+		gerenteRelacion: string;
 	};
 	queries: {
 		isDesktop: boolean;
@@ -18,13 +18,6 @@ interface PageInfoProps {
 		isNotMobile: boolean;
 	};
 }
-const MockObj = {
-	nit: "800220154",
-	name: "Flotas la Macarena",
-	layer: "Oro",
-	segment: "A",
-	managerRelation: "Carlos Gómez",
-};
 
 interface InfoKeyValueProps {
 	name: string;
@@ -43,25 +36,7 @@ const InfoKeyValue: React.FC<InfoKeyValueProps> = ({
 };
 
 const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
-	const [state, setState] = useState(null);
-
-	const fetch = async () => {
-		try {
-			const res = await fetchInfo({ nit: MockObj.nit });
-			console.info({ res });
-			setState(res?.data);
-		} catch (error) {}
-	};
-
-	useEffect(() => {
-		console.info({ state });
-	}, [state]);
-
-	useEffect(() => {
-		fetch();
-	}, []);
-
-	if (!state) return null;
+	if (!obj) return null;
 
 	const {
 		capa: layer,
@@ -69,7 +44,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 		nit,
 		nombre: name,
 		segmento: segment,
-	} = state;
+	} = obj;
 
 	const TabsComponent = <div>tabs</div>;
 
