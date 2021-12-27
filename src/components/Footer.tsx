@@ -1,5 +1,4 @@
 import React from "react";
-import logoAval from "../assets/Logo_Aval.png";
 
 const Footer = ({
 	queries,
@@ -16,7 +15,10 @@ const Footer = ({
 			className={`${
 				queries.isDesktop ? "justify-content-end" : "justify-content-center"
 			}`}>
-			<img src={logoAval} alt="logo aval" />
+			<img
+				src="https://depl-s3-bdo.s3.amazonaws.com/Logo_Aval.png"
+				alt="logo aval"
+			/>
 		</footer>
 	);
 };
