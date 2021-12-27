@@ -21,6 +21,10 @@ interface PageInfoProps {
 	};
 }
 
+enum SEGMENTS {
+	A = "Aval",
+}
+
 interface InfoKeyValueProps {
 	name: string;
 	value: string;
@@ -115,6 +119,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
 					<div className="info">
 						<InfoKeyValue name={"Capa"} value={layer} />
+						<span className="dot"></span>
 						<InfoKeyValue name={"Segmento"} value={segment} />
 					</div>
 				</div>
@@ -130,6 +135,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
 					<div className="info">
 						<InfoKeyValue name={"Capa"} value={layer} />
+						<span className="dot"></span>
 						<InfoKeyValue name={"Segmento"} value={segment} />
 					</div>
 				</div>
@@ -145,6 +151,7 @@ const PageInfo: React.FC<PageInfoProps> = ({ obj, queries }: PageInfoProps) => {
 					<p className="fs-6 text-muted">{`NIT: ${nit}`}</p>
 					<div className="info">
 						<InfoKeyValue name={"Capa"} value={layer} />
+						<span className="dot"></span>
 						<InfoKeyValue name={"Segmento"} value={segment} />
 					</div>
 				</div>
