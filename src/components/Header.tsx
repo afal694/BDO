@@ -1,6 +1,7 @@
+import React from "react";
+import * as Icon from "react-bootstrap-icons";
+import Logo from "../assets/logo.png";
 import IconButton from "./IconButton";
-
-const logo = "https://depl-s3-bdo.s3.amazonaws.com/logo.png"
 
 const AvatarComponent = ({
 	obj,
@@ -49,7 +50,7 @@ const Header = ({
 		return (
 			<header className="d-flex flex-row justify-content-between">
 				<div className="logo">
-					<img src={logo} alt="logo" />
+					<img src={Logo} alt="logo" />
 				</div>
 				<div className="last-button">
 					{obj && <AvatarComponent obj={obj} />}
@@ -71,7 +72,7 @@ const Header = ({
 				</div>
 				<div className="logo">
 					<img
-						src={logo}
+						src={Logo}
 						alt="logo"
 						style={{ width: "100%", maxHeight: "100%", height: "auto" }}
 					/>
