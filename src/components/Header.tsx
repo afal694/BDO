@@ -63,13 +63,27 @@ const Header = ({
 		return (
 			<header className="d-flex flex-row justify-content-between">
 				<div className="first-button">
-					<IconButton onClick={() => {alert("onBAck")}} icon="bi bi-arrow-left" />
+					<IconButton
+						onClick={() => {
+							alert("onBAck");
+						}}
+						icon="bi bi-arrow-left"
+					/>
 				</div>
 				<div className="logo">
-					<img src={Logo} alt="logo" />
+					<img
+						src={Logo}
+						alt="logo"
+						style={{ width: "100%", maxHeight: "100%", height: "auto" }}
+					/>
 				</div>
 				<div className="last-button">
-					<IconButton onClick={() => {alert("menu")}} icon="bi bi-list" />
+					<IconButton
+						onClick={() => {
+							alert("menu");
+						}}
+						icon="bi bi-list"
+					/>
 				</div>
 			</header>
 		);
